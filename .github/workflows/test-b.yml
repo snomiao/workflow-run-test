@@ -1,0 +1,19 @@
+name: test-b
+
+on:
+  push:
+    branches:
+      - branch-b
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Report context
+        run: |
+          echo "triggered by test-b"
+          echo "ref=$GITHUB_REF"
+          git status -sb
