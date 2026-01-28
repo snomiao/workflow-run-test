@@ -9,9 +9,11 @@
 
 ## GitHub Actions (gh CLI)
 
-- `gh run list --limit 5` returned no output in this environment.
-- Likely causes: no recent runs on this repo, not authenticated, or runs are not accessible locally.
-- Once `branch-b` is pushed, `test-b` should run and then trigger `test-a` for a concrete result.
+- Pushed `main` and `branch-b`.
+- Latest `test-b` run log confirms checkout on `branch-b`:
+  - `ref=refs/heads/branch-b`
+  - `## branch-b...origin/branch-b`
+- `gh run list --workflow test-a` reported no runs yet (not found at time of check).
 
 ## Files
 
