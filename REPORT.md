@@ -9,11 +9,14 @@
 
 ## GitHub Actions (gh CLI)
 
-- Pushed `main` and `branch-b`.
-- Latest `test-b` run log confirms checkout on `branch-b`:
+- Pushed `main` and `branch-b` and triggered `test-b` via `gh workflow run`.
+- `test-b` (push) log confirms checkout on `branch-b`:
   - `ref=refs/heads/branch-b`
   - `## branch-b...origin/branch-b`
-- `gh run list --workflow test-a` reported no runs yet (not found at time of check).
+- `test-a` (workflow_run) log shows default checkout on `main`, even though head branch is `branch-b`:
+  - `ref=refs/heads/main`
+  - `head_branch=branch-b`
+  - `## main...origin/main`
 
 ## Files
 
